@@ -21,7 +21,7 @@
     "php": "^7.4|^8.0",
     "composer/installers": "~2.0",
     "hassankhan/config": "^3.1.0",
-    "symfony/yaml": "^7.0.07",
+    "symfony/yaml": "~5",
     "brain/hierarchy": "^3.2"
   },
   "require-dev": {
