@@ -1,9 +1,9 @@
 {
-  "name": "soberwp/controller",
+  "name": "gofullstack/sage-controller",
   "type": "package",
   "license": "MIT",
   "description": "WordPress package to enable a basic controller when using Blade with Sage 9",
-  "homepage": "https://github.com/soberwp",
+  "homepage": "https://github.com/gofullstack",
   "authors": [
     {
       "name": "Darren Jacoby",
@@ -15,7 +15,7 @@
     "wordpress"
   ],
   "support": {
-    "issues": "https://github.com/soberwp/controller/issues"
+    "issues": "https://github.com/gofullstack/sage-controller/issues"
   },
   "require": {
     "php": "^7.4|^8.0",
