@@ -18,14 +18,11 @@
     "issues": "https://github.com/soberwp/controller/issues"
   },
   "require": {
-    "php": ">=5.6.0",
-    "composer/installers": "~1.0",
-    "hassankhan/config": "^0.10.0",
-    "symfony/yaml": "^3.2",
-    "brain/hierarchy": "^2.3"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "2.*"
+    "php": "^7.4|^8.0",
+    "composer/installers": "~2.0",
+    "hassankhan/config": "^3.1.0",
+    "symfony/yaml": "^7.0.07",
+    "brain/hierarchy": "^3.2"
   },
   "autoload": {
     "psr-4": {
@@ -40,5 +37,10 @@
     "test": [
       "vendor/bin/phpcs --extensions=php --ignore=vendor/ ."
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
   }
 }
