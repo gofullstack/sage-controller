@@ -2,6 +2,11 @@
 
 namespace Sober\Controller;
 
+use Sober\Controller\Controller;
+use Roave\BetterReflection\BetterReflection;
+use Roave\BetterReflection\Reflector\ClassReflector;
+use Roave\BetterReflection\SourceLocator\Type\SingleFileSourceLocator;
+
 class Loader
 {
     protected $path;
@@ -75,10 +80,8 @@ class Loader
      *
      * Add instance name and class to $instances[]
      */
-    protected function setInstance()
+    protected function setInstance($class)
     {
-        $class = get_declared_classes();
-        $class = '\\' . end($class);
         $template = pathinfo($this->instance, PATHINFO_FILENAME);
         // Convert camel case to match template
         $template = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $template));
@@ -158,6 +161,7 @@ class Loader
             if (!$this->isFile() || $this->isFileClass()) {
                 continue;
             }
+            echo 'Trait: '.$filename.'<br />';
             include_once $filename;
         }
     }
@@ -175,7 +179,13 @@ class Loader
                 continue;
             }
             include_once $filename;
-            $this->setInstance();
+
+            $astLocator = (new BetterReflection())->astLocator();
+            
+            $reflector = new ClassReflector(new SingleFileSourceLocator($filename, $astLocator));
+            $classes = $reflector->getAllClasses();
+         
+            $this->setInstance($classes[0]->getName());
         }
     }
 }

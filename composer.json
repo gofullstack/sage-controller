@@ -27,7 +27,8 @@
     "php": ">=7.3",
     "hassankhan/config": "=3.0.1",
     "symfony/yaml": "~4.2",
-    "brain/hierarchy": "^2.4"
+    "brain/hierarchy": "^2.4",
+    "roave/better-reflection": "^4.12"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*"
