@@ -25,7 +25,7 @@
   },
   "require": {
     "php": ">=7.3",
-    "hassankhan/config": "^3.1.0",
+    "hassankhan/config": "=3.0.1",
     "symfony/yaml": "~4.2",
     "brain/hierarchy": "^2.4"
   },
