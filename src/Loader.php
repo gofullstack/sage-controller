@@ -4,7 +4,7 @@ namespace Sober\Controller;
 
 use Sober\Controller\Controller;
 use Roave\BetterReflection\BetterReflection;
-use Roave\BetterReflection\Reflector\ClassReflector;
+use Roave\BetterReflection\Reflector\DefaultReflector;
 use Roave\BetterReflection\SourceLocator\Type\SingleFileSourceLocator;
 
 class Loader
@@ -180,11 +180,11 @@ class Loader
             }
             include_once $filename;
 
+
             $astLocator = (new BetterReflection())->astLocator();
-            
-            $reflector = new ClassReflector(new SingleFileSourceLocator($filename, $astLocator));
-            $classes = $reflector->getAllClasses();
-         
+            $reflector = new DefaultReflector(new SingleFileSourceLocator($filename, $astLocator));
+            $classes = $reflector->reflectAllClasses();
+           
             $this->setInstance($classes[0]->getName());
         }
     }
